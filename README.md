@@ -1,14 +1,14 @@
 tasty-integrate
 ---------------
-tasty-integrate brings automated test-harness creation (such as what occurs in
+tasty-integrate brings automated test-harness creation (such as what naturally occurs in
 Eclipse) to the Haskell world.  This is a set of programs to automate the
 otherwise manual editing needed to combine new tests
-[QuickCheck](http://hackage.haskell.org/package/QuickCheck) into a
-test-groupings [tasty](https://hackage.haskell.org/package/tasty)
+([QuickCheck](http://hackage.haskell.org/package/QuickCheck)) into a
+test-groupings ([tasty](https://hackage.haskell.org/package/tasty) test framework)
 
 Why
 ---
-To do a continuous integration build in Haskell, previously one had to manually
+Inorder to do Continuous Integration in Haskell, previously one had to manually
 edit test-suites following the creation of a new Module containing QuickCheck
 properties). tasty-integrate removes this tedium.
 
@@ -17,7 +17,7 @@ tasty-integrate is principally:
  * <b>tasty-integrate</b>  : a program to automatically integrate test files into a target suite via set-union or set-mask
  * <b>ide-format</b> : a simple stream-parser to filter test harness errors into gcc-like errors for easy parsing and browsing by editors such as vim and emacs. 
 
-tasty-integrate Example
+tasty-integrate example
 -----------------------
 
 Given a set of Modules containing properties: 
@@ -51,7 +51,7 @@ used, tasty-integrate can be ran as follows:
      unmodified: 
        Data.QcIntegrated, 3 property(s)
 
-ide-format Example
+ide-format example
 -----------------------
 Suites produced by tasty-integrate are formatted to resolve to the location of
 the failing property/test. So piping the suite created by test-integrate  
@@ -81,7 +81,7 @@ tasty-integrate Behavior
 ------------------------
 
 ## TODO
-* Support for smallcheck, hunit
-* The end-game is to add this as part of the tasty or test-framework (via specific
+* Support for Smallcheck, Hunit
+* The end-game is to patch this into tasty or test-framework (via specific
 console TestRunner), or possibly export this package(s) functionality into a
 larger collaborative Haskell-In-Production tool-set, analogous to Eclipse.
