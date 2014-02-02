@@ -76,9 +76,6 @@ Using tasty-integrate
 
     $ ./dist/build/whatever/built-suite/built-suite | ide-format
 
-tasty-integrate Behavior
-------------------------
-
 ## TODO
 * Support for Smallcheck and Hunit
 * The end-game is to patch this into tasty or test-framework (via specific
