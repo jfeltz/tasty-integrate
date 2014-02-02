@@ -71,11 +71,6 @@ Installation
     cabal build 
     cabal install 
 
-Using tasty-integrate
----------------------
-
-    $ ./dist/build/whatever/built-suite/built-suite | ide-format
-
 ## TODO
 * Support for Smallcheck and Hunit
 * The end-game is to patch this into tasty or test-framework (via specific
