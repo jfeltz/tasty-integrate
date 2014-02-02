@@ -83,4 +83,4 @@ tasty-integrate Behavior
 * Support for Smallcheck and Hunit
 * The end-game is to patch this into tasty or test-framework (via specific
 console TestRunner), or possibly move this functionality into a
-larger collaborative Haskell-In-Production tool-set that is analogous to Eclipse.
+larger collaborative Haskell-in-Production foundation.
