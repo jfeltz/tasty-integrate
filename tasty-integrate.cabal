@@ -1,6 +1,5 @@
 name:                tasty-integrate 
 version:             0.0.1
-synopsis:            automated integration of QuickCheck properties into tasty suites 
 license:             BSD3
 license-file:        LICENSE
 author:              John P. Feltz
@@ -8,6 +7,39 @@ maintainer:          jfeltz@gmail.com
 category:            Testing
 build-type:          Simple
 cabal-version:       >=1.8
+synopsis:            automated integration of QuickCheck properties into tasty suites 
+description: 
+  This brings automated test-suite creation (such as what naturally
+  occurs in Eclipse) to the Haskell world. This is a set of programs to automate
+  the otherwise manual editing needed to combine new tests (QuickCheck) into
+  test-groupings (tasty test framework).
+  .
+  Given a set of Modules containing properties:
+  .
+  > $ ls tests/Data/*
+  > QcIntegrated.hs  QcModulePath.hs  QcSuite.hs
+  .
+  Example use on a suite already importing the Modules above:
+  .
+  > $ tasty-integrate --masking test-suites/Suites.hs tests/Data/QcIntegrated.hs
+  > (changed) suite at: test-suites/Suite.hs
+  > with: 
+  >  added: 
+  >   none
+  >  removed: 
+  >    Data.QcModulePath, 2 property(s)
+  >    Data.QcSuite, 1 property(s)
+  >  modified: 
+  >   none
+  >  unmodified: 
+  >    Data.QcIntegrated, 3 property(s)
+  .
+  The created suites are IDE parsable, and errors can resolve to their original file.
+  So using the provided ide-format program from this package:
+  . 
+  > $ ./build/dist/suite/suite | ide-format 
+  > tests/Data/QcSuite.hs|20 error | buf_isomorphism
+  >   *** Failed! Falsifiable (after 1 test): 
 
 executable ide-format
   main-is: Main.hs
@@ -35,7 +67,9 @@ executable tasty-integrate
                      either,
                      lens,
                      aeson == 0.6.2.1,
-                     bytestring == 0.10.2.0
+                     bytestring == 0.10.2.0,
+                     tasty == 0.7,
+                     tasty-quickcheck
 
   ghc-options:       -Wall -rtsopts
   hs-source-dirs:    src
